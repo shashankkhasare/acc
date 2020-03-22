@@ -1,27 +1,25 @@
 import React from "react";
-import MaterialTable from "material-table";
 import axios from "axios";
+import MaterialTable from "material-table";
 
-export default class App extends React.Component {
+class App extends React.Component {
   state = {
     accounts: [],
     columns: [
-      "Account No",
-      "Date",
-      "Transaction Details",
-      "Value Date",
-      "Withdrawal AMT",
-      "Deposit AMT",
-      "Balance AMT"
+      { title: "Account No", field: "Account No" },
+      { title: "Date", field: "Date" },
+      { title: "Transaction Details", field: "Transaction Details" },
+      { title: "Value Date", field: "Value Date" },
+      { title: "Withdrawal AMT", field: "Withdrawal AMT" },
+      { title: "Deposit AMT", field: "Deposit AMT" },
+      { title: "Balance AMT", field: "Balance AMT" }
     ]
   };
 
   componentDidMount() {
     axios.get(`http://starlord.hackerearth.com/bankAccount`).then(res => {
       const accounts = res.data;
-      console.log(res);
-      console.log(accounts);
-      this.setState({ accounts });
+      this.setState({ ...this.state, accounts });
     });
   }
 
@@ -35,3 +33,5 @@ export default class App extends React.Component {
     );
   }
 }
+
+export default App;
