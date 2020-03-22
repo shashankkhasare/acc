@@ -26,7 +26,7 @@ class App extends React.Component {
   render() {
     return (
       <MaterialTable
-        title="Editable Example"
+        title="Accounts table"
         columns={this.state.columns}
         data={this.state.accounts}
       />
