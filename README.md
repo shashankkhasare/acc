@@ -1,2 +1,0 @@
-# acc
-Created with CodeSandbox
